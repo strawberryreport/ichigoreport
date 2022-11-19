@@ -1,5 +1,6 @@
 import altair as alt
 import datetime
+import plotly.figure_factory as ff
 import numpy as np
 import pandas as pd
 import plotly
