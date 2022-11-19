@@ -3,7 +3,7 @@ import datetime
 import numpy as np
 import pandas as pd
 #import plotly.figure_factory as ff
-import plotly.graph_objects as go
+#import plotly.graph_objects as go
 import streamlit as st
 import sqlite3
 import plotly_express as px
@@ -80,13 +80,13 @@ df_target = df_target.reset_index()
 
 #st.write(option)
 
-fig_target = go.Figure(data=[go.Pie(labels=df_target.index,
-                                    values=df_target['CNT'],
-                                    hole=.3)])
+#fig_target = go.Figure(data=[go.Pie(labels=df_target.index,
+#                                    values=df_target['CNT'],
+#                                    hole=.3)])
 
-fig_target.update_layout(showlegend=False,
-                         height=280,
-                         margin={'l':20, 'r':60, 't': 0, 'b':0})
+#fig_target.update_layout(showlegend=False,
+#                         height=280,
+#                         margin={'l':20, 'r':60, 't': 0, 'b':0})
 
 
 #fig_target.update_traces(textposition='inside', testinfo= 'label+percent')
