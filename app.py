@@ -4,9 +4,10 @@ import numpy as np
 import pandas as pd
 #import plotly.figure_factory as ff
 #import plotly.graph_objects as go
+import plotly_express as px
 import streamlit as st
 import sqlite3
-import plotly_express as px
+
 
 #db_file = 'IchigoDB_kyoto.db'
 #db_file = 'IchigoDB_yamaguchi.db'
