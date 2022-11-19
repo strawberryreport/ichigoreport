@@ -2,12 +2,11 @@ import altair as alt
 import datetime
 import numpy as np
 import pandas as pd
-#import plotly.figure_factory as ff
-#import plotly.graph_objects as go
 import plotly
 import plotly_express as px
 import streamlit as st
 import sqlite3
+#import plotly.graph_objects as go
 
 
 #db_file = 'IchigoDB_kyoto.db'
