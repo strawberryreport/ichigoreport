@@ -29,8 +29,8 @@ df_sum = pd.read_sql_query("""SELECT MEASURE_DATE,
 
 #収穫日に１を立てる
 
-df_kabo = pd.read_sql_query(""" SELECT STOCK_ITEM,
-                                        MEASURE_DATE,
+df_kabo = pd.read_sql_query(""" SELECT MEASURE_DATE,
+                                        STOCK_ITEM,
                                         SUM(CNT) AS KABO_CNT
 
                                         FROM (
@@ -75,20 +75,21 @@ option2 = ''
 
 option1 = st.sidebar.selectbox(
     '選択してください'
-    ,('Graph1','Graph2','Graph3','Graph4')
+    ,('収穫量','果房発生数','累積葉枚数','その他')
     )
 
 radio1 = st.sidebar.radio(
-    'グラフの種類',('収量（棚別）','収量（株別）','果房発生頻度')
+#    'グラフの種類',('収量（棚別）','収量（株別）','果房発生頻度')
+    'グラフの種類',('山口（6連）','山口（A3）','おさぜん農園')
     )
 
-if radio1 == '収量（棚別）':
+if radio1 == '山口（6連）':
     option2 = st.multiselect(
         '選択してください'
         ,df_lov_stock_list
         )
 
-if radio1 == '収量（株別）':
+if radio1 == 'おさぜん農園':
     option3 = st.selectbox(
         '選択してください'
         ,df_lov_stock_list
@@ -121,7 +122,7 @@ if option2 != '':
 
 #y_axis = df_sum["WEIGHT_SUM"]
 
-if option1 == 'Graph1':
+if option1 == '収穫量':
     
     x_axis = st.selectbox('test x', options= df_sum.columns)
     y_axis = st.selectbox('test y', options= df_sum.columns)
@@ -138,7 +139,7 @@ if option1 == 'Graph1':
     plot3 = px.bar(df_sum, x=x_axis, y=y_axis, color="STOCK_ITEM")
     st.plotly_chart(plot3)
 
-elif option1 == 'Graph2':
+elif option1 == '果房発生数':
     
     x2_axis = st.selectbox('test x2', options= df_kabo.columns)
     y2_axis = st.selectbox('test y2', options= df_kabo.columns)
@@ -150,7 +151,7 @@ elif option1 == 'Graph2':
 
     print(df_kabo)
     
-elif option1 == 'Graph3':
+elif option1 == '累積葉枚数':
 
     chart2 = alt.Chart(df_sum).mark_line().encode( x="MEASURE_DATE", y="WEIGHT_SUM", color="STOCK_ITEM")
     st.altair_chart(chart2, use_container_width=True)
